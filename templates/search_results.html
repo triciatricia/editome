@@ -1,8 +1,8 @@
-<html>
-<head>
-	<title>Search Results</title>
-</head>
-<body>
+{% extends "generic.html" %}
+
+{% block pgtitle %}Search Results{% endblock %}
+
+{% block content %}
 <p>You searched for: <strong> {{query}}</strong></p>
 
 {% if sites %}
@@ -16,8 +16,9 @@
 {% else %}
 	<p> No sites found!</p>
 {% endif %}
-<form action="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/" method="get">
+<form action="/search/" method="get">
 <input type="submit" value="Back">
 </form>
-</body>
-</html>
+{% endblock %}
+
+

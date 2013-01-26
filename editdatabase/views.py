@@ -7,16 +7,16 @@ from editdatabase.sitelist.models import Fly
 import re
 
 def about(request):
-	return render(about, 'about.html')
+	return render(request, 'about.html')
 
 def download(request):
-	return render(download, 'download.html')
+	return render(request, 'download.html')
 
 def literature(request):
-	return render(literature, 'literature.html')
+	return render(request, 'literature.html')
 
 def contact(request):
-	return render(contact, 'contact.html')
+	return render(request, 'contact.html')
 
 
 def search(request):
@@ -161,5 +161,5 @@ def search(request):
 					elif re.search(RE_NASCENTSEQ, item.ref):
 						item.ref2 = 'Rodriguez, Menet & Rosbash 2012'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/22658416"
-				return render_to_response('search_results.html', {'sites':sites, 'query':query})
-	return render_to_response('search_form.html', {'error': error,'error2': error2,'error3': error3})
+				return render(request, 'search_results.html', {'sites':sites, 'query':query})
+	return render(request, 'search_form.html', {'error': error,'error2': error2,'error3': error3})
