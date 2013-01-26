@@ -50,12 +50,11 @@ a:active {
 #topbartitle h1 {
 	font: 56px arial,sans-serif;
 	color: #FFF;
-	padding-top: 23px;
+	padding-top: 21px;
 	margin-top: 0px;
 }
 
 #nav {
-	padding-bottom: 6px;
 	text-align: center;
 }
 
@@ -67,11 +66,17 @@ a:active {
 	color: #87D341;
 	display: inline-block;
 	width: 120px;
-	height: 20px;
+	padding: 6px;
+}
+
+#nav .active {
+	color: #FF5C00;
+	background-color: #EFEFEF;
 }
 
 #nav a:hover {
 	color: #FF5C00;
+	background-color: #EFEFEF;
 }
 
 #content {

@@ -1,5 +1,6 @@
 # Django settings for editdatabase project.
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 DEBUG = False
 TEMPLATE_DEBUG = False
@@ -99,6 +100,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 		'django.core.context_processors.static',
 		'django.contrib.auth.context_processors.auth',
 		'django.contrib.messages.context_processors.messages',
+		'django.core.context_processors.request',
 												)
 
 MIDDLEWARE_CLASSES = (

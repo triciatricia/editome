@@ -19,18 +19,11 @@
 			</div>
 			<div id="nav">
 				{% block nav %}
-					<a href="/about/">About</a>
-					<a href="/search/">Search</a>
-					<a href="/download/">Download</a>
-					<a href="/literature/">Literature</a>
-					<a href="/contact/">Contact</a>
-				<!--<ul>
-					<li><a href="/about/">About</a></li>
-					<li><a href="/search/">Search</a></li>
-					<li><a href="/download/">Download</a></li>
-					<li><a href="/literature/">Literature</a></li>
-					<li><a href="/contact/">Contact</a></li>
-				</ul>-->
+					<a href="/about/"{% if request.path == '/about/' %} class="active"{% endif %}>About</a>
+					<a href="/search/"{% if request.path == '/search/' %} class="active"{% endif %}>Search</a>
+					<a href="/download/"{% if request.path == '/download/' %} class="active"{% endif %}>Download</a>
+					<a href="/literature/"{% if request.path == '/literature/' %} class="active"{% endif %}>Literature</a>
+					<a href="/contact/"{% if request.path == '/contact/' %} class="active"{% endif %}>Contact</a>
 				{% endblock %}
 			</div>
 		</div>
