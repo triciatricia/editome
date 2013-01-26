@@ -1,4 +1,5 @@
 # Django settings for editdatabase project.
+import os
 
 DEBUG = False
 TEMPLATE_DEBUG = False
@@ -7,7 +8,7 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
-ROOT = '/home/tricia/Django/editome/'
+ROOT = os.path.dirname(os.path.dirname(__file__)) + '/'
 
 MANAGERS = ADMINS
 
