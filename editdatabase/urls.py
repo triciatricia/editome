@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, include, url
-from django.conf import settings
 from editdatabase.views import about, search, download, literature, contact
 
 # Uncomment the next two lines to enable the admin:
@@ -22,8 +21,4 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-	('^' + settings.STATIC_DIR + '/(?P<path>.*)$', 
-		'django.views.static.serve', 
-		{ 'document_root': settings.STATIC_ROOT, }
-	),
 )
