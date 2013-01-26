@@ -9,33 +9,35 @@
 </head>
 
 <body>
-	<div id="topbar">
-		<!-- Contains title and navigation. -->
-		<div id="topbartitle">
-			{% block topbartitle %}
-			<h1>Editome</h1>
-			{% endblock %}
+	<div id="container">
+		<div id="topbar">
+			<!-- Contains title and navigation. -->
+			<div id="topbartitle">
+				{% block topbartitle %}
+				<h1>Editome</h1>
+				{% endblock %}
+			</div>
+			<div id="nav">
+				{% block nav %}
+					<a href="/about/">About</a>
+					<a href="/search/">Search</a>
+					<a href="/download/">Download</a>
+					<a href="/literature/">Literature</a>
+					<a href="/contact/">Contact</a>
+				<!--<ul>
+					<li><a href="/about/">About</a></li>
+					<li><a href="/search/">Search</a></li>
+					<li><a href="/download/">Download</a></li>
+					<li><a href="/literature/">Literature</a></li>
+					<li><a href="/contact/">Contact</a></li>
+				</ul>-->
+				{% endblock %}
+			</div>
 		</div>
-		<div id="nav">
-			{% block nav %}
-				<a href="/about/">About</a>
-				<a href="/search/">Search</a>
-				<a href="/download/">Download</a>
-				<a href="/literature/">Literature</a>
-				<a href="/contact/">Contact</a>
-			<!--<ul>
-				<li><a href="/about/">About</a></li>
-				<li><a href="/search/">Search</a></li>
-				<li><a href="/download/">Download</a></li>
-				<li><a href="/literature/">Literature</a></li>
-				<li><a href="/contact/">Contact</a></li>
-			</ul>-->
-			{% endblock %}
+		<div id="content">
+			<!-- Main content of each page here. -->
+			{% block content %}{% endblock %}
 		</div>
-	</div>
-	<div id="content">
-		<!-- Main content of each page here. -->
-		{% block content %}{% endblock %}
 	</div>
 	<div id="footer">
 		<!-- Footer for all pages here.-->

@@ -1,13 +1,38 @@
 /* General stylsheet for the editome website. */
 
+html {
+	height: 100%;
+}
+
 body {
 	font: 16px arial,sans-serif;
 	color: #272727;
 	margin: 0px;
+	background-color: #EFEFEF;
+	text-align: center;
+	height: 100%;
+}
+
+#container {
+	height: 100%;
+}
+
+body > #container {
+	height: auto;
+	min-height: 100%;
 }
 
 a {
 	text-decoration: none;
+	color: #418800;
+}
+
+a:hover {
+	color: #FF5C00;
+}
+
+a:active {
+	color: #FF5C00;
 }
 
 
@@ -43,4 +68,33 @@ a {
 	display: inline-block;
 	width: 120px;
 	height: 20px;
+}
+
+#nav a:hover {
+	color: #FF5C00;
+}
+
+#content {
+	background-color: #FFF;
+	padding: 20px;
+	width: 960px;
+	display: inline-block;
+	margin: 20px;
+	text-align: left;
+	padding-bottom: 2em; /* Needs to be the same as height and (margin-top - padding-top) of footer. */
+}
+
+#footer {
+	font-size: 12px;
+	clear: both;
+	position: relative;
+	z-index: 10;
+	height: 2em; /* footer positioning */
+	margin-top: -3em; /* footer positioning */
+	background-color: #C7C7C7;
+	padding-top: 1em; /* footer positioning */
+}
+
+#footer p {
+	margin: 0;
 }
