@@ -1,0 +1,46 @@
+/* General stylsheet for the editome website. */
+
+body {
+	font: 16px arial,sans-serif;
+	color: #272727;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+#topbar {
+	background-color: #272727;
+	border-bottom: 5px solid #16A521;
+	min-width: 960px;
+}
+
+#topbartitle {
+	text-align: center;
+	height: 100px;
+}
+
+#topbartitle h1 {
+	font: 56px arial,sans-serif;
+	color: #FFF;
+	padding-top: 23px;
+	margin-top: 0px;
+}
+
+#nav {
+	padding-bottom: 6px;
+	text-align: center;
+}
+
+#nav li {
+	/*display: inline-block;*/
+}
+
+#nav a {
+	color: #87D341;
+	display: inline-block;
+	width: 120px;
+	height: 20px;
+}

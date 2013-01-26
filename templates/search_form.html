@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Search</title>
+</head>
+
+<script type="text/javascript">
+	var chr = [];
+	chr["human"] = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","X","Y"];
+	chr["fly"] = ["2L","2R","3L","3R","4","X","Y"];
+	chr["mouse"] = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","X","Y"];
+	function fillSelect(nValue,nList) {
+		nList.options.length = 1;
+		var curr = chr[nValue];
+		for (each in curr)
+			{
+			var nOption = document.createElement('option');
+			nOption.appendChild(document.createTextNode(curr[each]));
+			nOption.setAttribute("value",curr[each]);
+			nList.appendChild(nOption);
+			}
+	}
+	function unCheck(obj) {
+		if (obj.checked == true)
+		{
+			document.getElementById("allloc").checked = false;
+		}
+	}
+	function unCheck2(obj) {
+		if (obj.checked == true)
+		{
+			document.getElementById("allrpt").checked = false;
+		}
+	}
+</script>
+<body>
+<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/about/"><strong>About</strong></a>     <a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/"><strong>Search</strong></a>     <a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/download/"><strong>Download</strong></a>     <a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/literature/"><strong>Literature</strong></a>     <a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/contact/"><strong>Contact</strong></a>
+	{% if error2 %}
+		<p style="color: red;">Resulting sites greater than 5000, please narrow search!</p>
+	{% endif %}
+	<p>Please choose a species and optionally enter a gene name and/or chromosomal location(hg19/mm9/dm3).</p>
+	{% if error %}
+		<p style="color: red;">Please input a complete chromosomal location!</p>
+	{% endif %}
+	{% if error3 %}
+		<p style="color: red;">Please choose a species!</p>
+	{% endif %}
+	<form action="" method="get">
+		Species: <select name='species' onchange="fillSelect(this.value,this.form['chr']);this.form['alu'].disabled = (this.value != 'human');this.form['repnonalu'].disabled = (this.value == 'fly');this.form['nonrep'].disabled = (this.value == 'fly')">
+				<option selected></option>
+				<option value="human">human</option>
+				<option value="mouse">mouse</option>
+				<option value="fly">fly</option>
+			</select><br>
+		Chromosome: <select name='chr'>
+				<option selected></option>
+			</select> Start:<input type="text" name ="start"> End:<input type="text" name ="end"><br>
+		Gene Name: <input type="text" name ="gene"><br>
+		Genic location: <input type="checkbox" id="allloc" checked="yes">All  <input type="checkbox" name="nonsyn" value="nonsyn" onClick="unCheck(this)">Nonsynonymous  <input type="checkbox" name="syn" value="syn" onClick="unCheck(this)">Synonymous  <input type="checkbox" name="5utr" value="5utr" onClick="unCheck(this)">5'UTR  <input type="checkbox" name="3utr" value="3utr" onClick="unCheck(this)">3'UTR  <input type="checkbox" name="ncrna" value="ncrna" onClick="unCheck(this)">ncRNA  <input type="checkbox" name="intronic" value="intronic" onClick="unCheck(this)">Intronic  <input type="checkbox" name="intergenic" value="intergenic" onClick="unCheck(this)">Intergenic<br>
+		Repetitive Element: <input type="checkbox" id="allrpt" Checked="yes">All  <input type="checkbox" name="alu" value="alu" onClick="unCheck2(this)">Alu  <input type="checkbox" name="repnonalu" value="repnonalu" onClick="unCheck2(this)">Repetitive non-Alu  <input type="checkbox" name="nonrep" value="nonrep" onClick="unCheck2(this)">Nonrepetitive<br>
+		<input type="submit" value="Search">
+	</form>
+</body>
+</html>

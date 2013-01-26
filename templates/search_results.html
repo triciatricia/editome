@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Search Results</title>
+</head>
+<body>
+<p>You searched for: <strong> {{query}}</strong></p>
+
+{% if sites %}
+	<p>Found {{sites|length}} site{{ sites|pluralize}}:</p>
+	<table border="1">
+	<tr><td>Chromosome</td> <td>Position</td> <td>Gene</td> <td>Strand</td> <td>Annotation</td> <td>Annotation2</td> <td>Alu?</td> <td>RepNonAlu?</td> <td>Reference</td></tr>
+	{% for site in sites %}
+		<tr><td>{{ site.chrom  }}</td> <td>{{ site.position }}</td> <td>{{ site.gene }}</td> <td>{{ site.strand }}</td> <td>{{ site.annot1 }}</td> <td>{{ site.annot2 }}</td> <td>{{ site.alu }}</td> <td>{{ site.repnonalu }}</td> <td><a href={{ site.ref3 }}>{{ site.ref2 }}</td></a></tr>
+	{% endfor %}
+	</table>
+{% else %}
+	<p> No sites found!</p>
+{% endif %}
+<form action="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/" method="get">
+<input type="submit" value="Back">
+</form>
+</body>
+</html>
