@@ -1,26 +1,24 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from django.shortcuts import render # Add
 from editdatabase.sitelist.models import Site
 from editdatabase.sitelist.models import Mouse
 from editdatabase.sitelist.models import Fly
 import re
 
 def about(request):
-	return render(about, 'about.html')
+	return render_to_response('about.html')
 
 def download(request):
-	return render(download, 'download.html')
+	return render_to_response('download.html')
 
 def literature(request):
-	return render(literature, 'literature.html')
+	return render_to_response('literature.html')
 
 def contact(request):
-	return render(contact, 'contact.html')
+	return render_to_response('contact.html')
 
 
 def search(request):
-  # I am a stupid error name
 	error = False
 	error2 = False
 	error3 = False
