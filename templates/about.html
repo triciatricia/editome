@@ -1,11 +1,9 @@
-<html>
-<head>
-	<title>About</title>
-</head>
-<body>
-<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/about/"><strong>About</strong></a>     <a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/"><strong>Search</strong></a>     <a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/download/"><strong>Download</strong></a>     <a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/literature/"><strong>Literature</strong></a>     <a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/contact/"><strong>Contact</strong></a><br><br>
+{% extends "generic.html" %}
 
-<a href="http://en.wikipedia.org/wiki/RNA_editing">RNA editing</a> is the post-transcriptional modification of RNA nucleotides from their genome encoded sequence. The most common type of editing in metazoans is deamination of Adenosine into Inosine catalyzed by the ADAR family of proteins.<br><br>
-This database aims to present a comprehensive collection of A-to-I editing sites in human, mouse, and fly transcripts.
-</body>
-</html>
+{% block pgtitle %}About{% endblock %}
+
+{% block content %}
+<p><a href="http://en.wikipedia.org/wiki/RNA_editing">RNA editing</a> is the post-transcriptional modification of RNA nucleotides from their genome encoded sequence. The most common type of editing in metazoans is deamination of Adenosine into Inosine catalyzed by the ADAR family of proteins.</p>
+<p>This database aims to present a comprehensive collection of A-to-I editing sites in human, mouse, and fly transcripts. </p>
+{% endblock %}
+

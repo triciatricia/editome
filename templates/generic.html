@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="{{ STATIC_URL }}style.css" />
+	<title>
+		{% block sitetitle %}Editome: Datatabase of RNA Editing - {% endblock %}
+		{% block pgtitle %}{% endblock %}
+	</title>
+</head>
+
+<body>
+	<div id="topbar">
+		<!-- Contains title and navigation. -->
+		<div id="topbartitle">
+			{% block topbartitle %}
+			<h1>Editome</h1>
+			{% endblock %}
+		</div>
+		<div id="nav">
+			{% block nav %}
+				<a href="/about/">About</a>
+				<a href="/search/">Search</a>
+				<a href="/download/">Download</a>
+				<a href="/literature/">Literature</a>
+				<a href="/contact/">Contact</a>
+			<!--<ul>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/search/">Search</a></li>
+				<li><a href="/download/">Download</a></li>
+				<li><a href="/literature/">Literature</a></li>
+				<li><a href="/contact/">Contact</a></li>
+			</ul>-->
+			{% endblock %}
+		</div>
+	</div>
+	<div id="content">
+		<!-- Main content of each page here. -->
+		{% block content %}{% endblock %}
+	</div>
+	<div id="footer">
+		<!-- Footer for all pages here.-->
+		{% block footer %}
+		<p>Brought to you by the <a href="http://lilab.stanford.edu">Li Lab</a>.</p>
+		{% endblock %}
+	</div>
+</body>
+</html>
