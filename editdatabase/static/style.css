@@ -13,7 +13,7 @@ a {
 
 #topbar {
 	background-color: #272727;
-	border-bottom: 5px solid #16A521;
+	/*border-bottom: 5px solid #16A521;*/
 	min-width: 960px;
 }
 
