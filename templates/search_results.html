@@ -6,12 +6,17 @@
 <p>You searched for: <strong> {{query}}</strong></p>
 
 {% if sites %}
+	<form action="/search/" method="get">
+		<input type="submit" value="Back"> <!-- I added this in in case the list of sites is long. But it looks kind of weird so you can remove it if you want. -->
+	</form>
 	<p>Found {{sites|length}} site{{ sites|pluralize}}:</p>
-	<table border="1">
-	<tr><td>Chromosome</td> <td>Position</td> <td>Gene</td> <td>Strand</td> <td>Annotation</td> <td>Annotation2</td> <td>Alu?</td> <td>RepNonAlu?</td> <td>Reference</td></tr>
-	{% for site in sites %}
+	<table>
+	<thead><tr><th>Chromosome</th> <th>Position</th> <th>Gene</th> <th>Strand</th> <th>Annotation</th> <th>Annotation2</th> <th>Alu?</th> <th>RepNonAlu?</th> <th>Reference</th></tr></thead>
+	<tbody>
+		{% for site in sites %}
 		<tr><td>{{ site.chrom  }}</td> <td>{{ site.position }}</td> <td>{{ site.gene }}</td> <td>{{ site.strand }}</td> <td>{{ site.annot1 }}</td> <td>{{ site.annot2 }}</td> <td>{{ site.alu }}</td> <td>{{ site.repnonalu }}</td> <td><a href={{ site.ref3 }}>{{ site.ref2 }}</td></a></tr>
-	{% endfor %}
+		{% endfor %}
+	</tbody>
 	</table>
 {% else %}
 	<p> No sites found!</p>
