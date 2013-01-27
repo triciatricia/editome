@@ -87,6 +87,11 @@ a:active {
 	margin: 20px;
 	text-align: left;
 	padding-bottom: 2em; /* Needs to be the same as height and (margin-top - padding-top) of footer. */
+	line-height: 26px;
+}
+
+#content p {
+	margin-bottom: 13px;
 }
 
 /* Pretty tables: some of the css taken from http://johnsardine.com/freebies/dl-html-css/simple-little-tab/. */
@@ -159,6 +164,15 @@ a:active {
 }
 #content table tr:hover td {
 	background: #DCEBCE;
+}
+
+#content input {
+	margin-left: 8px;
+	margin-right: 3px;
+}
+
+.btn {
+	margin-top: 8px;
 }
 
 #footer {
