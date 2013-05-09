@@ -34,7 +34,7 @@
 	}
 </script>
 
-<legend>Please choose a species and optionally enter a gene name and/or chromosomal location(hg19/mm9/dm3).</legend>
+<legend>Please select a species<br> If desired, you may also enter a gene name and/or chromosomal location(hg19/mm9/dm3).</legend>
 
 {% if error2 %}
 	<div class="alert alert-error">Resulting sites greater than 5000, please narrow search!</div>
@@ -47,11 +47,11 @@
 	<div class="alert alert-error">Please choose a species!</div>
 {% endif %}
 <form action="" method="get">
-	Species: <select name='species' onchange="fillSelect(this.value,this.form['chr']);this.form['alu'].disabled = (this.value != 'human');this.form['repnonalu'].disabled = (this.value == 'fly');this.form['nonrep'].disabled = (this.value == 'fly')">
+	Species: <select name='species' onchange="fillSelect(this.value,this.form['chr']);this.form['alu'].disabled = (this.value != 'human');this.form['repnonalu'].disabled = (this.value == 'fly');this.form['nonrep'].disabled = (this.value == 'fly');this.form['cons_human'].disabled = (this.value != 'mouse');this.form['cons_chimp'].disabled = (this.value != 'human');this.form['cons_rhesus'].disabled = (this.value != 'human');this.form['cons_mouse'].disabled = (this.value != 'human')">
 			<option selected></option>
-			<option value="human">human</option>
-			<option value="mouse">mouse</option>
-			<option value="fly">fly</option>
+			<option value="human">Human</option>
+			<option value="mouse">Mouse</option>
+			<option value="fly">Fly</option>
 		</select><br>
 	Chromosome: <select name='chr'>
 			<option selected></option>
@@ -59,6 +59,7 @@
 	Gene Name: <input type="text" name ="gene"><br>
 	Genic location: <input type="checkbox" id="allloc" checked="yes">All  <input type="checkbox" name="nonsyn" value="nonsyn" onClick="unCheck(this)">Nonsynonymous  <input type="checkbox" name="syn" value="syn" onClick="unCheck(this)">Synonymous  <input type="checkbox" name="5utr" value="5utr" onClick="unCheck(this)">5'UTR  <input type="checkbox" name="3utr" value="3utr" onClick="unCheck(this)">3'UTR  <input type="checkbox" name="ncrna" value="ncrna" onClick="unCheck(this)">ncRNA  <input type="checkbox" name="intronic" value="intronic" onClick="unCheck(this)">Intronic  <input type="checkbox" name="intergenic" value="intergenic" onClick="unCheck(this)">Intergenic<br>
 	Repetitive Element: <input type="checkbox" id="allrpt" Checked="yes">All <input type="checkbox" name="alu" value="alu" onClick="unCheck2(this)">Alu  <input type="checkbox" name="repnonalu" value="repnonalu" onClick="unCheck2(this)">Repetitive non-Alu  <input type="checkbox" name="nonrep" value="nonrep" onClick="unCheck2(this)">Nonrepetitive<br>
+	Editing Conservation: <input type="checkbox" name="cons_human" value="cons_human">Human <input type="checkbox" name="cons_chimp" value="cons_chimp">Chimpanzee  <input type="checkbox" name="cons_rhesus" value="cons_rhesus">Rhesus  <input type="checkbox" name="cons_mouse" value="cons_mouse">Mouse<br>
 	<button type="submit" class="btn">Search</button>
 </form>
 

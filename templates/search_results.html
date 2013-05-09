@@ -6,15 +6,42 @@
 <p>You searched for: <strong> {{query}}</strong></p>
 
 {% if sites %}
-	<form action="/search/" method="get">
-	<button type="submit" class="btn">New Search</button> <!-- I added this in in case the list of sites is long. But it looks kind of weird so you can remove it if you want. -->
+	<form action="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/" method="get">
+	<button type="submit" class="btn">New Search</button> 
 	</form>
 	<p>Found {{sites|length}} site{{ sites|pluralize}}:</p>
 	<table>
-	<thead><tr><th>Chromosome</th> <th>Position</th> <th>Gene</th> <th>Strand</th> <th>Annotation</th> <th>Annotation2</th> <th>Alu?</th> <th>RepNonAlu?</th> <th>Reference</th></tr></thead>
+	<thead><tr><th>Chromosome</th> <th>Position</th> <th>Gene</th> <th>Strand</th> <th>Annotation</th> <th>Annotation2</th> <th>Genomic Location</th> <th>Conservation of Edit</th> <th>Reference</th> <th>RNA-seq Data</th></tr></thead>
 	<tbody>
 		{% for site in sites %}
-		<tr><td>{{ site.chrom  }}</td> <td>{{ site.position }}</td> <td>{{ site.gene }}</td> <td>{{ site.strand }}</td> <td>{{ site.annot1 }}</td> <td>{{ site.annot2 }}</td> <td>{{ site.alu }}</td> <td>{{ site.repnonalu }}</td> <td><a href={{ site.ref3 }}>{{ site.ref2 }}</td></a></tr>
+			<tr><td>{{ site.chrom  }}</td> <td>{{ site.position }}</td> <td>{{ site.gene }}</td> <td>{{ site.strand }}</td> <td>{{ site.annot1 }}</td> <td>{{ site.annot2 }}</td>
+			<td><a href = "http://genome.ucsc.edu/cgi-bin/hgTracks?hgS_doOtherUser=submit&hgS_otherUserName=gokulr&hgS_otherUserSessionName=human_{{site.genome}}&position={{site.chrom}}:{{site.position}}" target = "blank">
+			{% if site.alu == 'yes' %} 
+				Alu
+			{% elif site.repnonalu == 'yes' %}
+				Repetitive non-Alu 
+			{% else %}
+				Nonrepetitive
+			{% endif %}</a></td>
+
+			<td>{% if site.human %}
+				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.human}}" target = "blank">Human</a>
+			{% endif %}
+			{% if site.chimp %}
+				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro2&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.chimp}}" target = "blank">Chimpanzee</a>
+			{% endif %}
+			{% if site.rhesus %}
+				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=rheMac2&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.rhesus}}" target = "blank">Rhesus</a>
+			{% endif %}
+			{% if site.mouse %}
+				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=mm9&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.mouse}}" target = "blank">Mouse</a>
+			{% endif %}</td>
+
+			<td><a href={{ site.ref3 }} target="blank">{{ site.ref2 }}</a></td>
+			<td>{% if site.rnainfo %}
+			<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/additionalinfo/?genome={{site.genome}}&location={{site.chrom}}:{{site.position}}" target="blank">Link</a>
+			{% else %} N/A {% endif %}
+			</td></tr>
 		{% endfor %}
 	</tbody>
 	</table>
@@ -24,7 +51,7 @@
 		Sorry! Perhaps you could try another search. 
 	</div>
 {% endif %}
-<form action="/search/" method="get">
+<form action="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/" method="get">
 <button type="submit" class="btn">Back</button>
 </form>
 {% endblock %}

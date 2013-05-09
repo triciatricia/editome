@@ -13,6 +13,9 @@ class Site(models.Model):
 	alu = models.CharField(max_length=3)
 	repnonalu = models.CharField(max_length=3)
 	ref = models.CharField(max_length=20)
+	chimp = models.CharField(max_length=20)
+	rhesus = models.CharField(max_length=20)
+	mouse = models.CharField(max_length=20)
 
 	def __unicode__(self):
 		return self.name
@@ -28,6 +31,7 @@ class Mouse(models.Model):
 	alu = models.CharField(max_length=3)
 	repnonalu = models.CharField(max_length=3)
 	ref = models.CharField(max_length=20)
+	human = models.CharField(max_length=20)
 
 	def __unicode__(self):
 		return self.name
@@ -43,6 +47,39 @@ class Fly(models.Model):
 	alu = models.CharField(max_length=3)
 	repnonalu = models.CharField(max_length=3)
 	ref = models.CharField(max_length=20)
+
+	def __unicode__(self):
+		return self.name
+
+class Human_Info(models.Model):
+	name = models.CharField(max_length=30) 
+	refname = models.CharField(max_length=100)
+	reflink = models.CharField(max_length=100)
+	tissue = models.CharField(max_length=50)
+	coverage = models.CharField(max_length=10)
+	editlevel = models.CharField(max_length=10)
+
+	def __unicode__(self):
+		return self.name
+
+class Mouse_Info(models.Model):
+	name = models.CharField(max_length=30) 
+	refname = models.CharField(max_length=100)
+	reflink = models.CharField(max_length=100)
+	tissue = models.CharField(max_length=50)
+	coverage = models.CharField(max_length=10)
+	editlevel = models.CharField(max_length=10)
+
+	def __unicode__(self):
+		return self.name
+
+class Fly_Info(models.Model):
+	name = models.CharField(max_length=30) 
+	refname = models.CharField(max_length=100)
+	reflink = models.CharField(max_length=100)
+	tissue = models.CharField(max_length=50)
+	coverage = models.CharField(max_length=10)
+	editlevel = models.CharField(max_length=10)
 
 	def __unicode__(self):
 		return self.name	

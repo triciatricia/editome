@@ -1,0 +1,11 @@
+COMMANDS TO POPULATE DATABASE:
+
+python manage.py shell
+from editdatabase.sitelist.models import Site
+execfile('SCRIPT.py')
+
+RUNSERVER:
+
+python manage.py runserver
+
+

@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
-from editdatabase.views import about, search, download, literature, contact
+from editdatabase.views import about, search, download, literature, contact, additionalinfo
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 	('^download/$', download),
 	('^literature/$', literature),
 	('^contact/$', contact),
+	('^additionalinfo/$', additionalinfo),
     # Examples:
     # url(r'^$', 'editdatabase.views.home', name='home'),
     # url(r'^editdatabase/', include('editdatabase.foo.urls')),

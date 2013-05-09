@@ -1,0 +1,25 @@
+{% extends "generic.html" %}
+
+{% block pgtitle %}RNA-seq data observed{% endblock %}
+
+{% block content %}
+<p>RNA editing site: {{ position }} in {{ species }}</p>
+
+{% if sites %}
+	</form>
+	<p>Found {{sites|length}} datapoint{{ sites|pluralize}}:</p>
+	<table>
+	<thead><tr><th>Reference</th> <th>Tissue</th> <th>Sequencing Coverage</th> <th>Editing level (%)</th></thead>
+	<tbody>
+		{% for site in sites %}
+			<tr><td><a href ={{ site.reflink}} target="blank">{{ site.refname }}</a></td> <td>{{ site.tissue }}</td> <td>{{ site.coverage }}</td> <td>{{ site.editlevel }}</td></tr>
+		{% endfor %}
+	</tbody>
+	</table>
+{% else %}
+	<div class="alert alert-block">
+		<h4> No RNA-seq data for this site!</h4>
+	</div>
+{% endif %}
+</form>
+{% endblock %}

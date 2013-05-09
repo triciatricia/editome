@@ -64,8 +64,8 @@ STATIC_ROOT = ROOT + 'editdatabase/static'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_DIR = 'static'
-STATIC_URL = '/' + STATIC_DIR + '/'
+STATIC_DIR = ROOT + 'editdatabase/static'
+STATIC_URL = 'http://www.stanford.edu/~gokulr/media/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
