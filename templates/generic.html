@@ -20,11 +20,11 @@
 			</div>
 			<div id="nav">
 				{% block nav %}
-					<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/about/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/about/' %} class="active"{% endif %}>About</a>
-					<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/search/' %} class="active"{% endif %}>Search</a>
-					<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/download/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/download/' %} class="active"{% endif %}>Download</a>
-					<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/literature/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/literature/' %} class="active"{% endif %}>Literature</a>
-					<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/contact/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/contact/' %} class="active"{% endif %}>Contact</a>
+					<a href="/about/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/about/' %} class="active"{% endif %}>About</a>
+					<a href="/search/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/search/' %} class="active"{% endif %}>Search</a>
+					<a href="/download/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/download/' %} class="active"{% endif %}>Download</a>
+					<a href="/literature/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/literature/' %} class="active"{% endif %}>Literature</a>
+					<a href="/contact/"{% if request.path == '/~gokulr/cgi-bin/django.cgi/contact/' %} class="active"{% endif %}>Contact</a>
 				{% endblock %}
 			</div>
 		</div>

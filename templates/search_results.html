@@ -6,7 +6,7 @@
 <p>You searched for: <strong> {{query}}</strong></p>
 
 {% if sites %}
-	<form action="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/" method="get">
+	<form action="/search/" method="get">
 	<button type="submit" class="btn">New Search</button> 
 	</form>
 	<p>Found {{sites|length}} site{{ sites|pluralize}}:</p>
@@ -39,7 +39,7 @@
 
 			<td><a href={{ site.ref3 }} target="blank">{{ site.ref2 }}</a></td>
 			<td>{% if site.rnainfo %}
-			<a href="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/additionalinfo/?genome={{site.genome}}&location={{site.chrom}}:{{site.position}}" target="blank">Link</a>
+			<a href="/additionalinfo/?genome={{site.genome}}&location={{site.chrom}}:{{site.position}}" target="blank">Link</a>
 			{% else %} N/A {% endif %}
 			</td></tr>
 		{% endfor %}
@@ -51,7 +51,7 @@
 		Sorry! Perhaps you could try another search. 
 	</div>
 {% endif %}
-<form action="http://www.stanford.edu/~gokulr/cgi-bin/django.cgi/search/" method="get">
+<form action="/search/" method="get">
 <button type="submit" class="btn">Back</button>
 </form>
 {% endblock %}
