@@ -13,9 +13,9 @@ class Site(models.Model):
 	alu = models.CharField(max_length=3)
 	repnonalu = models.CharField(max_length=3)
 	ref = models.CharField(max_length=20)
-	chimp = models.CharField(max_length=20)
-	rhesus = models.CharField(max_length=20)
-	mouse = models.CharField(max_length=20)
+	chimp = models.CharField(max_length=20, null=True)
+	rhesus = models.CharField(max_length=20, null=True)
+	mouse = models.CharField(max_length=20, null=True)
 
 	def __unicode__(self):
 		return self.name
@@ -31,7 +31,7 @@ class Mouse(models.Model):
 	alu = models.CharField(max_length=3)
 	repnonalu = models.CharField(max_length=3)
 	ref = models.CharField(max_length=20)
-	human = models.CharField(max_length=20)
+	human = models.CharField(max_length=20, null=True)
 
 	def __unicode__(self):
 		return self.name
