@@ -140,9 +140,9 @@ def search(request):
 				for item in sites:
 					item.genome = genome;
 					location = item.chrom + ':' + item.position
-					#if species == 'human':
-						#if Human_Info.objects.filter(name__iexact = location):
-							#item.rnainfo = 'yes'
+					if species == 'human':
+						if Human_Info.objects.filter(name__iexact = location):
+							item.rnainfo = 'yes'
 					if species == 'mouse':
 						if Mouse_Info.objects.filter(name__iexact = location):
 							item.rnainfo = 'yes'
