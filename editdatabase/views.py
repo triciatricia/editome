@@ -8,6 +8,8 @@ from editdatabase.sitelist.models import Human_Info
 from editdatabase.sitelist.models import Mouse_Info
 from editdatabase.sitelist.models import Fly_Info
 import re
+import sys
+import os
 
 def about(request):
 	return render(request, 'about.html')
@@ -141,7 +143,8 @@ def search(request):
 					item.genome = genome;
 					location = item.chrom + ':' + item.position
 					if species == 'human':
-						if Human_Info.objects.filter(name__iexact = location):
+						searchpath = 'grep ' + location + ' /home/gokul/Gokul/editing_database/5-7-13/editome/ALLHUMAN_locations_uniq.py'; 
+						if os.popen(searchpath).read():
 							item.rnainfo = 'yes'
 					if species == 'mouse':
 						if Mouse_Info.objects.filter(name__iexact = location):
