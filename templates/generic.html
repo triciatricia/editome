@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap.css" type="text/css" />
 	<link rel="stylesheet" href="{{ STATIC_URL }}style.css" type="text/css" />
 	<title>
-		{% block sitetitle %}Editome: RNA Editing Database - {% endblock %}
+		{% block sitetitle %}RADAR: RNA Editing Database - {% endblock %}
 		{% block pgtitle %}{% endblock %}
 	</title>
 </head>
@@ -15,7 +15,7 @@
 			<!-- Contains title and navigation. -->
 			<div id="topbartitle">
 				{% block topbartitle %}
-				<h1>Editome</h1>
+				<img src = "http://www.stanford.edu/~gokulr/database/logo.png" alt="logo" height = "150" width = "550">
 				{% endblock %}
 			</div>
 			<div id="nav">
@@ -36,7 +36,7 @@
 	<div id="footer">
 		<!-- Footer for all pages here.-->
 		{% block footer %}
-		<p>Brought to you by the <a href="http://lilab.stanford.edu">Li Lab</a>.</p>
+		<p>Maintained by the <a href="http://lilab.stanford.edu">Li Lab</a> at <a href="http://www.stanford.edu">Stanford University</a>.</p>
 		{% endblock %}
 	</div>
 </body>
