@@ -128,7 +128,7 @@ def search(request):
 				if 'intergenic' in request.GET:
 					query = query + 'intergenic ';
 
-			if sites.count() > 5000:
+			if sites.count() > 500:
 				error_toomanyresults = True
 			else:
 				sites = sites.exclude(annot1__iexact = 'annot1')
