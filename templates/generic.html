@@ -24,6 +24,7 @@
 					<a href="/search/"{% if request.path == '/search/' %} class="active"{% endif %}>Search</a>
 					<a href="/download/"{% if request.path == '/download/' %} class="active"{% endif %}>Download</a>
 					<a href="/literature/"{% if request.path == '/literature/' %} class="active"{% endif %}>Literature</a>
+					<a href="/tutorial/"{% if request.path == '/tutorial/' %} class="active"{% endif %}>Tutorial</a>
 					<a href="/contact/"{% if request.path == '/contact/' %} class="active"{% endif %}>Contact</a>
 				{% endblock %}
 			</div>
@@ -40,4 +41,17 @@
 		{% endblock %}
 	</div>
 </body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41493084-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </html>

@@ -20,6 +20,9 @@ def download(request):
 def literature(request):
 	return render(request, 'literature.html')
 
+def tutorial(request):
+	return render(request, 'tutorial.html')
+
 def contact(request):
 	return render(request, 'contact.html')
 
@@ -128,7 +131,7 @@ def search(request):
 				if 'intergenic' in request.GET:
 					query = query + 'intergenic ';
 
-			if sites.count() > 500:
+			if sites.count() > 1500:
 				error_toomanyresults = True
 			else:
 				sites = sites.exclude(annot1__iexact = 'annot1')
