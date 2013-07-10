@@ -14,15 +14,20 @@
 	<thead><tr><th>Chromosome</th> <th>Position</th> <th>Gene</th> <th>Strand</th> <th>Annotation</th> <th>Annotation2</th> <th>Genomic Location</th> <th>Conservation of Edit</th> <th>Reference</th> <th>RNA-seq Data</th></tr></thead>
 	<tbody>
 		{% for site in sites %}
-			<tr><td>{{ site.chrom  }}</td> <td>{{ site.position }}</td> <td>{{ site.gene }}</td> <td>{{ site.strand }}</td> <td>{{ site.annot1 }}</td> <td>{{ site.annot2 }}</td>
-			<td><a href = "http://genome.ucsc.edu/cgi-bin/hgTracks?hgS_doOtherUser=submit&hgS_otherUserName=gokulr&hgS_otherUserSessionName=human_{{site.genome}}&position={{site.chrom}}:{{site.position}}" target = "blank">
+			<tr><td>{{ site.chrom  }}</td> 
+
+			<td><a href = "http://genome.ucsc.edu/cgi-bin/hgTracks?hgS_doOtherUser=submit&hgS_otherUserName=gokulr&hgS_otherUserSessionName=human_{{site.genome}}&position={{site.chrom}}:{{site.position}}" target = "blank">{{ site.position }}</a></td> 
+
+
+			<td>{{ site.gene }}</td> <td>{{ site.strand }}</td> <td>{{ site.annot1 }}</td> <td>{{ site.annot2 }}</td>
+			<td>
 			{% if site.alu == 'yes' %} 
 				Alu
 			{% elif site.repnonalu == 'yes' %}
 				Repetitive non-Alu 
 			{% else %}
 				Nonrepetitive
-			{% endif %}</a></td>
+			{% endif %}</td>
 
 			<td>{% if site.human %}
 				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.human}}" target = "blank">Human</a>
