@@ -3,6 +3,22 @@
 {% block pgtitle %}RNA-seq data observed{% endblock %}
 
 {% block content %}
+
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.10.2.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}table2CSV.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { $('table').each(function() { var $table = $(this);
+
+var $button = $("<button type='button'>");
+$button.text("Download results");
+$button.insertBefore($table);
+
+$button.click(function() {
+  var csv = $table.table2CSV({separator:"\t",delivery:'value'});
+  window.location.href = 'data:text/csv;charset=UTF-8,'
+                        + encodeURIComponent(csv);
+});   }); }) </script>
+
 <p>RNA editing site: {{ position }} in {{ species }}</p>
 
 {% if sites %}
