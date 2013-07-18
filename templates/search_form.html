@@ -34,7 +34,7 @@
 	}
 </script>
 
-<legend>Please select a species<br> If desired, you may also enter a gene name and/or chromosomal location(hg19/mm9/dm3).</legend>
+<legend>Search for A-to-I RNA editing sites(hg19/mm9/dm3):</legend>
 
 {% if error2 %}
 	<div class="alert alert-error">Resulting sites greater than 1500, please narrow search!</div>
@@ -46,15 +46,39 @@
 {% if error3 %}
 	<div class="alert alert-error">Please choose a species!</div>
 {% endif %}
+
 <form action="" method="get">
 	Species: <select name='species' onchange="fillSelect(this.value,this.form['chr']);this.form['alu'].disabled = (this.value != 'human');this.form['repnonalu'].disabled = (this.value == 'fly');this.form['nonrep'].disabled = (this.value == 'fly');this.form['cons_human'].disabled = (this.value != 'mouse');this.form['cons_chimp'].disabled = (this.value != 'human');this.form['cons_rhesus'].disabled = (this.value != 'human');this.form['cons_mouse'].disabled = (this.value != 'human')">
-			<option selected></option>
 			<option value="human">Human</option>
 			<option value="mouse">Mouse</option>
 			<option value="fly">Fly</option>
 		</select><br>
 	Chromosome: <select name='chr'>
 			<option selected></option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="X">X</option>
+			<option value="Y">Y</option>
 		</select> Start:<input type="text" name ="start"> End:<input type="text" name ="end"><br>
 	Gene Name: <input type="text" name ="gene"><br>
 	Genic location: <input type="checkbox" id="allloc" checked="yes">All  <input type="checkbox" name="nonsyn" value="nonsyn" onClick="unCheck(this)">Nonsynonymous  <input type="checkbox" name="syn" value="syn" onClick="unCheck(this)">Synonymous  <input type="checkbox" name="5utr" value="5utr" onClick="unCheck(this)">5'UTR  <input type="checkbox" name="3utr" value="3utr" onClick="unCheck(this)">3'UTR  <input type="checkbox" name="ncrna" value="ncrna" onClick="unCheck(this)">ncRNA  <input type="checkbox" name="intronic" value="intronic" onClick="unCheck(this)">Intronic  <input type="checkbox" name="intergenic" value="intergenic" onClick="unCheck(this)">Intergenic<br>

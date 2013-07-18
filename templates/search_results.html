@@ -3,6 +3,22 @@
 {% block pgtitle %}Search Results{% endblock %}
 
 {% block content %}
+
+<script type="text/javascript" src="{{ STATIC_URL }}jquery-1.10.2.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}table2CSV.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { $('table').each(function() { var $table = $(this);
+
+var $button = $("<button type='button'>");
+$button.text("Download results");
+$button.insertBefore($table);
+
+$button.click(function() {
+  var csv = $table.table2CSV({separator:"\t",delivery:'value'});
+  window.location.href = 'data:text/csv;charset=UTF-8,'
+                        + encodeURIComponent(csv);
+});   }); }) </script>
+
 <p>You searched for: <strong> {{query}}</strong></p>
 
 {% if sites %}
@@ -11,7 +27,7 @@
 	</form>
 	<p>Found {{sites|length}} site{{ sites|pluralize}}:</p>
 	<table>
-	<thead><tr><th>Chromosome</th> <th>Position</th> <th>Gene</th> <th>Strand</th> <th>Annotation</th> <th>Annotation2</th> <th>Genomic Location</th> <th>Conservation of Edit</th> <th>Reference</th> <th>RNA-seq Data</th></tr></thead>
+	<thead><tr><th>Chromosome</th> <th>Position</th> <th>Gene</th> <th>Strand</th> <th>Genic region</th> <th>Repetitive Element</th> <th>Conservation of Edit</th> <th>Reference</th> <th>Editing Levels</th></tr></thead>
 	<tbody>
 		{% for site in sites %}
 			<tr><td>{{ site.chrom  }}</td> 
@@ -19,34 +35,15 @@
 			<td><a href = "http://genome.ucsc.edu/cgi-bin/hgTracks?hgS_doOtherUser=submit&hgS_otherUserName=gokulr&hgS_otherUserSessionName=human_{{site.genome}}&position={{site.chrom}}:{{site.position}}" target = "blank">{{ site.position }}</a></td> 
 
 
-			<td>{{ site.gene }}</td> <td>{{ site.strand }}</td> <td>{{ site.annot1 }}</td> <td>{{ site.annot2 }}</td>
-			<td>
-			{% if site.alu == 'yes' %} 
-				Alu
-			{% elif site.repnonalu == 'yes' %}
-				Repetitive non-Alu 
-			{% else %}
-				Nonrepetitive
-			{% endif %}</td>
+			<td>{{ site.gene }}</td> <td>{{ site.strand }}</td> 
+			<td>{{ site.annot1 }}{% if site.annot1 == 'Nonsyn' %} {{ site.annot2 }} {% endif %}</td>
+			<td>{% if site.alu == 'yes' %}Alu{% elif site.repnonalu == 'yes' %}Repetitive non-Alu{% else %}Nonrepetitive{% endif %}</td>
 
-			<td>{% if site.human %}
-				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.human}}" target = "blank">Human</a>
-			{% endif %}
-			{% if site.chimp %}
-				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro2&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.chimp}}" target = "blank">Chimpanzee</a>
-			{% endif %}
-			{% if site.rhesus %}
-				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=rheMac2&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.rhesus}}" target = "blank">Rhesus</a>
-			{% endif %}
-			{% if site.mouse %}
-				<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=mm9&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.mouse}}" target = "blank">Mouse</a>
-			{% endif %}</td>
+			<td>{% if site.human %}<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.human}}" target = "blank">Human</a>{% endif %}{% if site.chimp %}<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro2&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.chimp}}" target = "blank">Chimpanzee</a>{% endif %}{% if site.rhesus %}<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=rheMac2&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.rhesus}}" target = "blank">Rhesus</a>{% endif %}{% if site.mouse %}<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=mm9&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.mouse}}" target = "blank">Mouse</a>{% endif %}</td>
 
 			<td><a href={{ site.ref3 }} target="blank">{{ site.ref2 }}</a></td>
-			<td>{% if site.rnainfo %}
-			<a href="/additionalinfo/?genome={{site.genome}}&location={{site.chrom}}:{{site.position}}" target="blank">Link</a>
-			{% else %} N/A {% endif %}
-			</td></tr>
+			<td>{% if site.rnainfo %}<a href="/additionalinfo/?genome={{site.genome}}&location={{site.chrom}}:{{site.position}}" target="blank">Link</a>{% else %} N/A {% endif %}</td>
+</tr>
 		{% endfor %}
 	</tbody>
 	</table>
