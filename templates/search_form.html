@@ -48,7 +48,7 @@
 {% endif %}
 
 <form action="" method="get">
-	Species: <select name='species' onchange="fillSelect(this.value,this.form['chr']);this.form['alu'].disabled = (this.value != 'human');this.form['repnonalu'].disabled = (this.value == 'fly');this.form['nonrep'].disabled = (this.value == 'fly');this.form['cons_human'].disabled = (this.value != 'mouse');this.form['cons_chimp'].disabled = (this.value != 'human');this.form['cons_rhesus'].disabled = (this.value != 'human');this.form['cons_mouse'].disabled = (this.value != 'human')">
+	Species: <select name='species' onchange="fillSelect(this.value,this.form['chr']);this.form['alu'].disabled = (this.value != 'human');this.form['cons_human'].disabled = (this.value != 'mouse');this.form['cons_chimp'].disabled = (this.value != 'human');this.form['cons_rhesus'].disabled = (this.value != 'human');this.form['cons_mouse'].disabled = (this.value != 'human')">
 			<option value="human">Human</option>
 			<option value="mouse">Mouse</option>
 			<option value="fly">Fly</option>
