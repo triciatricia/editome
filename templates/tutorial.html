@@ -12,16 +12,16 @@
 <b>Editing Conservation</b>: Filter by observation of editing in other organisms</p>
 <p> <b>Results page:</b></p>
 <img src = "http://www.stanford.edu/~gokulr/database/results.png" alt="Results" width = "900">
-<p><b>Chromosome</b>: Chromosome in reference genome<br>
+<p><b>Download results</b>: Download all information in results table to tab-delimited text file<br>
+<b>Chromosome</b>: Chromosome in reference genome<br>
 <b>Position</b>: Coordinate on chromosome. Clicking on this field links to the editing site in the UCSC browser, showing the overlapping genes and genomic nucleotide conservation:</p>
 <img src = "http://www.stanford.edu/~gokulr/database/ucsc.png" alt="UCSC" width = "900">
 <p><b>Gene</b>: Overlapping gene<br>
 <b>Strand</b>: + for positive strand, - for negative strand (with respect to reference genome)<br>
-<b>Annotation</b>: Genic location<br>
-<b>Annotation2</b>: If edit is located with a coding sequence, the predicted amino acid variation. If edit is not within a coding sequence, the genic location.<br>
-<b>Genomic Location</b>: Specifies whether the editing site is located in an Alu repeat, non-Alu repeat, or nonrepetitive region of the genome.<br>
+<b>Genic Region</b>: Functional location within the transcript. If edit is located with a coding sequence, the predicted amino acid variation is also shown. <br>
+<b>Repetitive Element</b>: Specifies whether the editing site is located in an Alu repeat, non-Alu repeat, or nonrepetitive region of the genome.<br>
 <b>Conservation of Edit</b>: Species in which editing is known to be conserved. Clicking on this field links to the editing site in the UCSC browser for the selected species, showing the overlapping genes and genomic nucleotide conservation<br>
 <b>Reference</b>: Study in which the editing site was identified. Clicking on this link redirects to the pubmed reference.<br>
-<b>RNA-seq Data</b>: If RNA-seq data is available for this editing site, clicking on this link will provide further information:</p>
+<b>Editing Levels</b>: If RNA-seq data is available for this editing site, clicking on this link will provide tissue-specific editing levels:</p>
 <img src = "http://www.stanford.edu/~gokulr/database/rnainfo.png" alt="RNAseqInfo" width = "900">
 {% endblock %}
