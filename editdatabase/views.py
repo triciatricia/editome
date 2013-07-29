@@ -180,6 +180,7 @@ def search(request):
 					RE_OHLSON = re.compile(r'Ohlson')
 					RE_NEEMAN = re.compile(r'Neeman')
 					RE_BURNS = re.compile(r'Burns')
+					RE_NISWENDER = re.compile(r'Niswender')
 					if re.search(RE_BILLY, item.ref):
 						item.ref2 = 'Li et al 2009'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/19478186"
@@ -252,6 +253,9 @@ def search(request):
 					elif re.search(RE_BURNS, item.ref):
 						item.ref2 = 'Burns et al. 1997'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/9153397"
+					elif re.search(RE_NISWENDER, item.ref):
+						item.ref2 = 'Niswender, Sanders-Bush & Emeson 1998'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/9928237"
 				return render(request, 'search_results.html', {'sites':sites, 'query':query})
 	return render(request, 'search_form.html', {'error': error_incorrectlocation,'error2': error_toomanyresults,'error3': error_nospecies})
 
