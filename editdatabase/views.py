@@ -215,10 +215,10 @@ def search(request):
 						item.ref2 = 'Ramaswami et al 2013'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/23291724"
 					elif re.search(RE_NASCENTSEQ, item.ref):
-						item.ref2 = 'Rodriguez, Menet & Rosbash 2012'
+						item.ref2 = 'Rodriguez et al. 2012'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/22658416"
 					elif re.search(RE_CARMI, item.ref):
-						item.ref2 = 'Carmi, Borukhov & Levanon 2011'
+						item.ref2 = 'Carmi et al. 2011'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/22028664"
 					elif re.search(RE_SAKURAI, item.ref):
 						item.ref2 = 'Sakurai et al. 2010'
@@ -254,7 +254,7 @@ def search(request):
 						item.ref2 = 'Burns et al. 1997'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/9153397"
 					elif re.search(RE_NISWENDER, item.ref):
-						item.ref2 = 'Niswender, Sanders-Bush & Emeson 1998'
+						item.ref2 = 'Niswender et al. 1998'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/9928237"
 				return render(request, 'search_results.html', {'sites':sites, 'query':query})
 	return render(request, 'search_form.html', {'error': error_incorrectlocation,'error2': error_toomanyresults,'error3': error_nospecies})
