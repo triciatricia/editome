@@ -24,7 +24,7 @@ $button.click(function() {
 {% if sites %}
 	<p>Found {{sites|length}} site{{ sites|pluralize}}:</p>
 	<table>
-	<thead><tr><th>Chromosome</th> <th>Position</th> <th>Gene</th> <th>Strand</th> <th>Genic region</th> <th>Repetitive Element</th> <th>Conservation of Edit</th> <th>Reference</th> <th>Editing Levels</th></tr></thead>
+	<thead><tr><th>Chromosome</th> <th>Position</th> <th>Gene</th> <th>Strand</th> <th>Genic region</th> <th>Repetitive Element</th> <th>Conservation</th> <th>Reference</th> <th>Editing Levels</th></tr></thead>
 	<tbody>
 		{% for site in sites %}
 			<tr><td>{{ site.chrom  }}</td> 
