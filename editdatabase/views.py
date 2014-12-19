@@ -181,6 +181,14 @@ def search(request):
 					RE_NEEMAN = re.compile(r'Neeman')
 					RE_BURNS = re.compile(r'Burns')
 					RE_NISWENDER = re.compile(r'Niswender')
+					RE_BAZAK = re.compile(r'Bazak')
+					RE_CHEN = re.compile(r'Chen')
+					RE_PICARDI = re.compile(r'Picardi')
+					RE_PORATH = re.compile(r'Porath')
+					RE_ZHU = re.compile(r'Zhu')
+					RE_CATTENOZ = re.compile(r'Cattenoz')
+					RE_GU = re.compile(r'Gu')
+					RE_REENAN = re.compile(r'Reenan')
 					if re.search(RE_BILLY, item.ref):
 						item.ref2 = 'Li et al 2009'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/19478186"
@@ -256,6 +264,30 @@ def search(request):
 					elif re.search(RE_NISWENDER, item.ref):
 						item.ref2 = 'Niswender et al. 1998'
 						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/9928237"
+					elif re.search(RE_BAZAK, item.ref):
+						item.ref2 = 'Bazak et al. 2014'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/24347612"
+					elif re.search(RE_CHEN, item.ref):
+						item.ref2 = 'Chen 2013'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/23818636"
+					elif re.search(RE_PICARDI, item.ref):
+						item.ref2 = 'Picardi et al. 2012'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/22957051"
+					elif re.search(RE_PORATH, item.ref):
+						item.ref2 = 'Porath et al. 2014'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/25158696"
+					elif re.search(RE_ZHU, item.ref):
+						item.ref2 = 'Zhu et al. 2013'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/23537002"
+					elif re.search(RE_CATTENOZ, item.ref):
+						item.ref2 = 'Cattenoz et al. 2013'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/23264566"
+					elif re.search(RE_GU, item.ref):
+						item.ref2 = 'Gu et al. 2012'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/22448268"
+					elif re.search(RE_REENAN, item.ref):
+						item.ref2 = 'St Laurent et al. 2013'
+						item.ref3 = "http://www.ncbi.nlm.nih.gov/pubmed/24077224"
 				return render(request, 'search_results.html', {'sites':sites, 'query':query})
 	return render(request, 'search_form.html', {'error': error_incorrectlocation,'error2': error_toomanyresults,'error3': error_nospecies})
 
