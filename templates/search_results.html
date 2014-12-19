@@ -33,7 +33,7 @@ $button.click(function() {
 
 
 			<td>{{ site.gene }}</td> <td>{{ site.strand }}</td> 
-			<td>{{ site.annot1 }}{% if site.annot1 == 'Nonsyn' %} {{ site.annot2 }} {% endif %}</td>
+			<td>{{ site.annot1 }}{% if site.annot1 == 'Nonsyn' %} {{ site.annot2 }}{% elif site.annot1 == 'Syn' %} {{ site.annot2 }} {% endif %}</td>
 			<td>{% if site.alu == 'yes' %}Alu{% elif site.repnonalu == 'yes' %}Repetitive non-Alu{% else %}Nonrepetitive{% endif %}</td>
 
 			<td>{% if site.human %}<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.human}}" target = "blank">Human</a>{% endif %}{% if site.chimp %}<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=panTro2&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.chimp}}" target = "blank">Chimpanzee </a>{% endif %}{% if site.rhesus %}<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=rheMac2&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.rhesus}}" target = "blank">Rhesus </a>{% endif %}{% if site.mouse %}<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=mm9&hgt.customText=http://www.stanford.edu/~gokulr/database/ucsc_settings.txt&position={{site.mouse}}" target = "blank">Mouse</a>{% endif %}</td>
